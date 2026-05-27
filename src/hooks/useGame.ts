@@ -11,3 +11,9 @@ function createInitialState(): GameState {
     winner: null,
   }
 }
+
+export function useGame() {
+  const [state, setState] = useState<GameState>(createInitialState)
+
+  return { state, setState }
+}
