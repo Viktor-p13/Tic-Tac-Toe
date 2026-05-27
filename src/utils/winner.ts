@@ -9,3 +9,11 @@ function isWinningLine(board: BoardState, line: readonly number[]): Player | nul
   }
   return null
 }
+
+export function getWinner(board: BoardState): Player | null {
+  for (const line of WIN_LINES) {
+    const winner = isWinningLine(board, line)
+    if (winner) return winner
+  }
+  return null
+}
