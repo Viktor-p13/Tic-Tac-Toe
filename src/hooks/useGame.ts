@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react'
-import type { GameState, Player } from '../types/game'
+import type { GameState } from '../types/game'
 import { createEmptyBoard, getOppositePlayer } from '../utils/board'
 import { getWinner, isDraw } from '../utils/winner'
 
