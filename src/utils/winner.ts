@@ -21,3 +21,7 @@ export function getWinner(board: BoardState): Player | null {
 export function isBoardFull(board: BoardState): boolean {
   return board.every((cell) => cell !== null)
 }
+
+export function isDraw(board: BoardState): boolean {
+  return isBoardFull(board) && getWinner(board) === null
+}
