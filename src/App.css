@@ -48,3 +48,28 @@
 .status-draw {
   color: #fbbf24;
 }
+
+.scoreboard {
+  display: flex;
+  gap: 1.25rem;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.actions button {
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.actions button.secondary {
+  background: #475569;
+}
