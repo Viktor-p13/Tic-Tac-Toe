@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { useGame } from './hooks/useGame'
 import { Board } from './components/Board'
 import { GameStatus } from './components/GameStatus'
@@ -9,8 +9,13 @@ import type { Player } from './types/game'
 export default function App() {
   const { state, playMove, resetRound } = useGame()
   const [scores, setScores] = useState({ X: 0, O: 0, draws: 0 })
+  const lastCountedStatus = useRef<string>('playing|null')
 
   useEffect(() => {
+    const key = `${state.status}|${state.winner ?? 'null'}`
+    if (key === lastCountedStatus.current) return
+    lastCountedStatus.current = key
+
     if (state.status === 'won' && state.winner) {
       setScores((prev) => ({ ...prev, [state.winner as Player]: prev[state.winner as Player] + 1 }))
     }
@@ -21,6 +26,7 @@ export default function App() {
 
   const resetScores = useCallback(() => {
     setScores({ X: 0, O: 0, draws: 0 })
+    lastCountedStatus.current = 'playing|null'
     resetRound()
   }, [resetRound])
 
