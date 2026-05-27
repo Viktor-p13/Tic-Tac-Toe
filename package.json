@@ -2,5 +2,9 @@
   "name": "tic-tac-toe",
   "private": true,
   "version": "1.0.0",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
 }
